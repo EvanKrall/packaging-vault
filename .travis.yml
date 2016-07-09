@@ -1,0 +1,14 @@
+sudo: required
+services:
+- docker
+before_install:
+- sudo apt-get update && sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=1.10.3-0~trusty
+script:
+- make bintray.json
+deploy:
+  on: master
+  provider: bintray
+  file: bintray.json
+  user: EvanKrall
+  key:
+    secure: GPriJQ6TN6+3fu350kYNumd4I3BvbWUPybUIeEzKtG06ChjVq5+B4UUoTteQ8OCAPt7PXszoAqn1G2EKvgz7Fx6IWOhN6snEyngZtA7Zq/AfT2ihKGHiFQaqCJ+dRXfXBcVp744yiXj4IugbJ+dHjAUfUsqhPfhlOXlRLN1kZjPGaj3XD38w0lX74GEmiXhcZRVhtzTaIHVciusjba8BvdScvVLrQAbKnwV86U4Cf1z1z1tmgWF3Y6g2XwpkXQ0wMv8P6Of/IpLUxqjuSetnrICVpqSSlHadzpfZ8oo8aj6hIgG/WNC8iqqn0ew93eKjmUyo+kGYyk70FjNaDajvX/qshF1kK04JMEeOFkzFbJPd4KFAwvQj8SHpmpPy2iW2cB2f63gHcO+9n1v6puLSag+rMw2TzegjMyMG+LqpjB7IIimyQiXUg8YwDtVRLAvtAXiKKkKkf5FfGS7vc9XQu4ep9Myvdf//WZJiHpY0T8wMtaQ44Llu5NIx0wDhpXpwlE2kPqjOzoNX7IgpyvU/SM43g72uzEEGkqk0k2UYUBJRve14b1Eoxkjw8Hd1O64j7htddvZuqMepBTowFtTdhpvS0P66AYnUUH/tSx21buGU3WLYbtnYX+QJEDPjuTRbQHvE1/Wt9d9pogNxMoNo8VNJ2cCNLR3CxqdngsrPcUw=

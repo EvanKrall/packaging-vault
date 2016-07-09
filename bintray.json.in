@@ -1,0 +1,27 @@
+{
+    "package": {
+        "name": "vault",
+        "repo": "deb",
+        "subject": "evankrall",
+        "desc": "vault",
+        "website_url": "https://github.com/hashicorp/vault",
+        "issue_tracker_url": "https://github.com/hashicorp/vault/issues",
+        "vcs_url": "https://github.com/hashicorp/vault.git",
+        "github_use_tag_release_notes": false,
+        "licenses": ["MPL-2.0"],
+        "labels": [],
+        "public_download_numbers": false,
+        "public_stats": false
+    },
+
+    "version": {
+        "name": "@VERSION@",
+        "desc": "This is a version",
+        "gpgSign": false
+    },
+
+    "files": [
+        {"includePattern": "dist/(.*)", "uploadPattern": "$1", "matrixParams": { "deb_distribution": "trusty,xenial", "deb_component": "main", "deb_architecture": "amd64", "override": 1} }
+    ],
+    "publish": true
+}
